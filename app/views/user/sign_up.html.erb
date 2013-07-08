@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css" media="screen">
+</style>
+</head>
+<body>
+
+<div id="page">
+
+  <p><b>Sign Up</b></p>
+  <% if !@messages.blank? %>
+      Errors in form data:
+      <ul>
+        <% @messages.each do |message| %>
+          <li><div id="form_error" style="color: red;"><%= message %></div></li>
+        <% end %>
+      </ul>
+  <% end %>
+
+    <% if @message %>
+        <div id="form_error" style="color: red;"><%= @message %></div>
+    <% end %>
+
+  <%= form_tag :controller => :user, :action => 'sign_up' do %>
+      <table border="0">
+        <tr>
+          <td align="right">
+            <label for="name">Full Name: </label>
+          </td>
+          <td>
+            <%= text_field_tag :name %>
+          </td>
+        <tr>
+        <tr>
+          <td align="right">
+            <label for="username">Username: </label>
+          </td>
+          <td>
+            <%= text_field_tag :username %>
+          </td>
+        <tr>
+        <tr>
+          <td align="right">
+            <label for="password">Password: </label>
+          </td>
+          <td>
+            <%= password_field_tag :password %>
+          </td>
+        <tr>
+        <tr>
+          <td align="right">
+            <label for="re_password">Retype Password: </label>
+          </td>
+          <td>
+            <%= password_field_tag :re_password %>
+          </td>
+        <tr>
+      </table>
+      <%= submit_tag("Submit") %>&nbsp;&nbsp;<%= submit_tag "Back", name: :back %>
+  <% end %>
+
+</div>
+<div id="footer">
+
+</div>
+</body>
+</html>

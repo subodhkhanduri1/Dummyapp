@@ -1,0 +1,714 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: "Helvetica";
+    font-size: 13px;
+    color: #333;
+    background-image: url("wood.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%
+
+}
+
+body *:focus
+{
+    outline-color: dodgerblue;
+}
+
+#top
+{
+    width: 100%;
+    height: 50px;
+
+    margin:0px;
+    padding: 0px;
+
+    position:fixed;
+    top: 0px;
+    z-index: 1;
+
+    display:block;
+    clear:both;
+    background-color: #7a7a7a;
+    /*border: 1px solid black;*/
+}
+
+#topbar
+{
+    width: 820px;
+    height: 100%;
+
+    margin: 0px auto;
+    padding: 0px;
+
+    display:block;
+    clear: both;
+    overflow:hidden;
+}
+
+#welcome
+{
+    height: 100%;
+
+    margin:0px;
+    padding: 0px;
+
+    display:block;
+    clear:left;
+    float:left;
+
+    color: white;
+    line-height: 50px;
+
+}
+
+#welcome a
+{
+    color: white;
+    text-decoration: none;
+}
+
+#welcome a:hover
+{
+    color: white;
+    text-decoration: underline;
+}
+
+#logout
+{
+    height: 100%;
+
+    margin:0px;
+    padding: 0px;
+
+    display:block;
+    clear:right;
+    float:right;
+
+    color: white;
+    line-height: 50px;
+}
+
+#logout a
+{
+    color: white;
+    text-decoration: none;
+}
+
+#logout a:hover
+{
+    text-decoration: underline;
+}
+
+
+#page
+{
+    margin: 0px auto;
+    padding: 20px 0px 0px;
+    width: 820px;
+
+    z-index: 0;
+    position: relative;
+    top: 50px;
+
+    /*border: 1px solid black;*/
+    min-height: 570px;
+    display:block;
+    clear: both;
+    color: white;
+}
+
+#page a
+{
+    color: dodgerblue;
+}
+
+#page a:hover
+{
+    text-decoration: none;
+}
+
+#footer
+{
+    width:100%;
+    height: 55px;
+
+    /*margin: 55px 0px 0px 0px;*/
+    padding: 55px 0px 0px 0px;
+    text-align: center;
+
+    z-index: 1;
+    line-height: 55px;
+    /*vertical-align: middle;
+    display: table-cell;*/
+
+    /*border: 1px solid black;*/
+    /*background-color: ;*/
+    clear:both;
+    color: white;
+}
+
+
+#tweets
+{
+    width: 510px;
+    /*height: 100px;*/
+    margin:0px 0px 0px 5px;
+    padding: 5px;
+
+    float:left;
+    clear:both;
+    /*border: 1px solid black;*/
+    display: block;
+
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px 1px #5ea0c1;
+    background-color: rgba(246,246,246,0.2);
+
+}
+
+#tweet_head
+{
+    width: 510px;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+
+    /*float:right;*/
+
+    border-bottom: 1px solid gray;
+    border-bottom-style: inset;
+    color: rgba(256,256,256,1);
+
+    display: block;
+
+    /*color: #1e3535;*/
+}
+
+#tweet
+{
+    width:496px;
+    min-height: 50px;
+    margin:15px auto;
+    padding: 4px 4px 0px;
+
+    /*float:right;*/
+    /*border: 1px solid red;*/
+    display: block;
+    color: black;
+
+    opacity: 1;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px 1px #5ea0c1;
+    background-color: #F6F6F6;
+}
+
+#tweet #user
+{
+    width:496px;
+    height: 20px;
+    margin:0px;
+    padding: 0px 0px 0px;
+
+    /*float:right;*/
+    border-bottom: 1px solid gray;
+    border-bottom-style: inset;
+
+    display: block;
+}
+
+#tweet #user .username
+{
+    color: dodgerblue;
+}
+
+#tweet #time
+{
+    float:right;
+    font-size: 10px;
+}
+
+#tweet #message
+{
+    resize: none;
+}
+
+#tweets #tweet_message
+{
+    resize: none;
+    width:505px;
+    margin: 5px auto;
+    height: 40px;
+    font-family: "Helvetica";
+    font-size: 12px;
+}
+
+#otherusers
+{
+    width: 280px;
+    min-height: 200px;
+    margin:0px 0px 15px 0px;
+    padding: 0px 5px 0px 0px;
+
+    float:right;
+    /*border: 1px solid black;*/
+    display: block;
+    color: black;
+
+}
+
+
+#view_all_link
+{
+    float: right;
+    clear: both;
+    margin-right: 5px;
+}
+
+#view_all_link a
+{
+    color: dodgerblue;
+
+}
+
+#view_all_link a:hover
+{
+    text-decoration: none;
+}
+
+#view_all_tweets_link
+{
+    float: right;
+    clear: both;
+    margin-right: 5px;
+}
+
+#view_all_tweets_link a
+{
+    color: #125196;
+
+}
+
+#view_all_tweets_link a:hover
+{
+    text-decoration: none;
+}
+
+
+#followers
+{
+    width: 275px;
+    margin: 0px 0px 15px;
+    padding: 0px;
+    display: block;
+    overflow: hidden;
+    clear: right;
+
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px 1px #5ea0c1;
+    background-color: rgba(246,246,246,1);
+
+}
+
+#followers #head
+{
+    width: 100%;
+
+    line-height: 40px;
+    height: 40px;
+
+    font-size: 15px;
+    padding-left: 5px;
+    font-weight: bold;
+
+    border-bottom: 1px solid lightgray;
+    border-bottom-style: inset;
+
+}
+
+#follower
+{
+    margin:0px auto;
+    padding: 0px 0px 0px 5px;
+
+    width: 270px;
+    height:30px;
+    line-height: 30px;
+
+    border-bottom: 1px solid lightgray;
+    border-bottom-style: inset;
+
+    display: block;
+    clear:both;
+}
+
+#followees
+{
+    width: 275px;
+    margin:0px;
+    padding: 0px;
+    display: block;
+
+    overflow: hidden;
+    clear:both;
+
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px 1px #5ea0c1;
+    background-color: rgba(246,246,246,1);
+
+}
+
+#followees #head
+{
+    width: 100%;
+
+    line-height: 40px;
+    height: 40px;
+
+    font-size: 15px;
+    padding-left: 5px;
+    font-weight: bold;
+
+    border-bottom: 1px solid lightgray;
+    border-bottom-style: inset;
+
+}
+
+#followee
+{
+    margin:0px auto;
+    padding: 0px 0px 0px 5px;
+
+    width: 270px;
+    height:30px;
+    line-height: 30px;
+
+    border-bottom: 1px solid lightgray;
+    border-bottom-style: inset;
+}
+
+/*----Page Specific CSS----*/
+
+/*--- Login/Welcome Page ---*/
+
+.submit
+{
+    background-color: #5ea0c1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    font-family: Helvetica;
+    border: none;
+    color:white;
+}
+
+.submit:hover
+{
+    background-color: #5487a2;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-family: Helvetica;
+    border: none;
+    color:white;
+}
+
+#login_form
+{
+    width: 300px;
+    height: auto;
+
+    font-family: Helvetica;
+    color: black;
+
+    background-color: #F6F6F6;
+    /*border:solid 1px #5ea0c1;*/
+    border-radius: 6px;
+    box-shadow: 1px 1px 10px 1px #5ea0c1;
+
+    clear: both;
+    float: right;
+
+    padding: 0px 0px 10px 0px;
+    margin-bottom: 20px;
+}
+
+#login_form *
+{
+    font-family: Helvetica;
+}
+
+#login_form #head
+{
+    width: 100%;
+
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+
+
+    border-bottom: 1px solid lightgray;
+    border-bottom-style: inset;
+    margin: 0px auto;
+}
+
+#login_form #rest
+{
+    padding-left: 5px;
+}
+
+#login_form #rest label
+{
+    margin: 5px 0px;
+}
+
+#login_form #rest #username
+{
+    width: 280px;
+    height: 30px;
+    font-family: Helvetica;
+    border-style: inset;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    margin: 3px 0px;
+}
+
+#login_form #rest #password
+{
+    width:280px;
+    height: 30px;
+    border-style: inset;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: Helvetica;
+}
+
+/*--- Sign Up Form/Page ---*/
+
+#sign_up_form
+{
+    width: 300px;
+    height: auto;
+
+    font-family: Helvetica;
+    color: black;
+
+    background-color: #F6F6F6;
+    /*border:solid 1px #5ea0c1;*/
+    border-radius: 6px;
+    box-shadow: 1px 1px 10px 1px #5ea0c1;
+    clear: both;
+    float: right;
+    padding: 0px 0px 10px 0px;
+    margin-bottom: 20px;
+}
+
+#sign_up_form #head
+{
+    width: 100%;
+
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+
+
+    border-bottom: 1px solid lightgray;
+    border-bottom-style: inset;
+    margin: 0px auto;
+}
+#sign_up_form #rest
+{
+    padding-left: 5px;
+}
+
+#sign_up_form #name
+{
+    width:280px;
+    height: 30px;
+    border-style: inset;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: Helvetica;
+}
+
+#sign_up_form #rest #password
+{
+    width:280px;
+    height: 30px;
+    border-style: inset;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: Helvetica;
+}
+
+#sign_up_form #re_password
+{
+    width:280px;
+    height: 30px;
+    border-style: inset;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: Helvetica;
+}
+
+#sign_up_form #username
+{
+    width:280px;
+    height: 30px;
+    border-style: inset;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: Helvetica;
+}
+
+
+/*--------------------------- Change Name Page --------------------------------*/
+
+#change_name_form #name
+{
+    width:200px;
+    height: 25px;
+    border-style: inset;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: Helvetica;
+    clear: right;
+}
+
+#change_name_form #name:focus
+{
+    outline-color: dodgerblue;
+}
+
+#change_name_form #submit
+{
+    background-color: #5ea0c1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    font-family: Helvetica;
+    border: none;
+    color:white;
+}
+
+#change_name_form #submit:hover
+{
+    background-color: #5487a2;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-family: Helvetica;
+    border: none;
+    color:white;
+}
+
+
+/*--------------------------- Change Password Page --------------------------------*/
+
+#change_password_form #old_password
+{
+    width:200px;
+    height: 25px;
+    border-style: inset;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: Helvetica;
+    clear: right;
+}
+
+#change_password_form #old_password:focus
+{
+    outline-color: dodgerblue;
+}
+
+#change_password_form #new_password
+{
+    width:200px;
+    height: 25px;
+    border-style: inset;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: Helvetica;
+    clear: right;
+}
+
+#change_password_form #new_password:focus
+{
+    outline-color: dodgerblue;
+}
+
+#change_password_form #re_password
+{
+    width:200px;
+    height: 25px;
+    border-style: inset;
+    border-radius: 6px;
+    border: 1px solid lightgray;
+    font-family: Helvetica;
+    clear: right;
+}
+
+#change_password_form #re_password:focus
+{
+    outline-color: dodgerblue;
+}
+
+#change_password_form #submit
+{
+    background-color: #5ea0c1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    font-family: Helvetica;
+    border: none;
+    color:white;
+}
+
+#change_password_form #submit:hover
+{
+    background-color: #5487a2;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-family: Helvetica;
+    border: none;
+    color:white;
+}
+
+/*--------------------------- All Users Page --------------------------------*/
+
+#users_all #submit
+{
+    width: 80px;
+    background-color: #5ea0c1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    font-family: Helvetica;
+    border: none;
+    color:white;
+}
+
+#users_all #submit:hover
+{
+    background-color: #5487a2;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-family: Helvetica;
+    border: none;
+    color:white;
+}

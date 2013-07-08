@@ -1,0 +1,32 @@
+<div id="page">
+
+  <p><b>Change Your Name</b></p>
+  <% if session[:messages] %>
+      Errors in form data:
+      <ul>
+        <% session[:messages].each do |message| %>
+            <li><div id="form_error" style="color: red;"><%= message %></div></li>
+        <% end %>
+      </ul>
+      <% session.delete(:messages)%>
+  <% end %>
+  <% if @message %>
+      <div id="form_error" style="color: red;"><%= @message %></div>
+  <% end %>
+  <div id="change_name_form">
+  <%= form_tag controller: :user, :action => 'change_name', method: :put do %>
+      <table border="0">
+        <tr>
+          <td align="right">
+            <label for="name">New Name: </label>
+          </td>
+          <td>
+            <%= text_field_tag :name, @user.name, :maxlength => 50  %>
+          </td>
+        <tr>
+      </table>
+      <%= submit_tag "Submit", id: :submit %>&nbsp;&nbsp;<%= submit_tag "Back", name: :back, id: :submit %>
+  <% end %>
+  </div>
+</div>
+

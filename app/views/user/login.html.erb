@@ -1,0 +1,113 @@
+<div id="page">
+
+  <div id="login_form">
+
+    <div id="head">
+      LOGIN
+    </div>
+    <div id="rest">
+        <% if @error %>
+            <div id="form_error" style="color: red;">Username and Password do not match or exist!</div>
+        <% end %>
+
+      <%= form_tag "/user/login", autocomplete: :off do %>
+
+        <table border="0">
+
+            <tr>
+              <td>
+                <label for="username">Username</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input id="username" name="username" type="text" maxlength="40" value="" />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="password">Password</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input id="password" name="password" type="password" maxlength="80" value=""/>
+              </td>
+            </tr>
+
+        </table>
+
+        <input type="submit" class="submit" name="submit" value="Login" OnClick="this.disable()">
+
+      <% end %>
+    </div>
+  </div>
+
+  <div id="sign_up_form">
+    <div id="head">
+      NEW&nbsp;HERE?&nbsp;SIGN&nbsp;UP
+    </div>
+    <div id="rest">
+      <% if !@messages.blank? %>
+          Errors in form data:
+          <ul>
+            <% @messages.each do |message| %>
+                <li><div id="form_error" style="color: red;"><%= message %></div></li>
+            <% end %>
+          </ul>
+      <% end %>
+
+      <% if @message %>
+          <div id="form_error" style="color: red;"><%= @message %></div>
+      <% end %>
+
+      <%= form_tag '/user/sign_up', autocomplete: :off do %>
+          <table border="0">
+            <tr>
+              <td>
+                <label for="name">Full Name: </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= text_field_tag :name %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="username">Username: </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= text_field_tag :username %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="password">Password: </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= password_field_tag :password %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="re_password">Retype Password: </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= password_field_tag :re_password %>
+              </td>
+            </tr>
+          </table>
+          <%= submit_tag "Sign Up", :name => "submit", :class => "submit" %>
+      <% end %>
+     </div>
+  </div>
+
+</div>
