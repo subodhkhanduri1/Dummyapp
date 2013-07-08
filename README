@@ -1,0 +1,31 @@
+Ruby Version - 1.9.3-p448
+Rails Version - 3.2.12
+
+Database Server - MySQL 5.5
+
+installation on ubuntu => sudo apt-get install mysql-server mysql-client
+
+Gems Required -
+
+'mysql2'
+'activerecord-mysql-adapter'
+'will_paginate'
+'execjs'
+'therubyracer'
+'autocomplete-off'
+'rspec-rails'
+'factory_girl_rails'
+'capybara'
+'faker'
+'launchy'
+'guard-rspec'
+
+
+getting gems => gem install 'gem_name'
+
+MySQL drivers
+
+'libmysql-ruby'
+'libmysqlclient-dev'
+
+installing on ubuntu => sudo apt-get install libmysql-ruby libmysqlclient-dev
