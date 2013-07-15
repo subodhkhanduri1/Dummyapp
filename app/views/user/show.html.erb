@@ -1,0 +1,104 @@
+<div id="page">
+
+  <div id="tweets">
+
+    <div id="tweet_head">
+      <%= @userpro.name %>'s Latest Tweets
+    </div>
+
+    <% if @tweets.size>0
+         @tweets.each do |t|
+    %>
+            <div id="tweet">
+
+              <div id="user"><span class="username"><%= t.name %></span> <span id="time"><%= t.created_at.in_time_zone('New Delhi').day %>/<%= t.created_at.in_time_zone('New Delhi').month %>/<%= t.created_at.in_time_zone('New Delhi').year %>&nbsp;<%= t.created_at.in_time_zone('New Delhi').hour %>:<%= t.created_at.in_time_zone('New Delhi').min %>:<%= t.created_at.in_time_zone('New Delhi').sec %>&nbsp;</span></div>
+              <div id="message"><%= t.message %></div>
+
+            </div>
+        <% end %>
+            <%= will_paginate @tweets %>
+        <% else %>
+        <div id="tweet">
+          No tweets to display! :(
+        </div>
+    <%
+       end
+    %>
+    <br/><br/>
+  </div>
+
+  <div id="otherusers">
+
+    <div id="followers">
+      <% if @followers.size>0 %>
+          <div id="head"><%= @userpro.name %>'s followers</div>
+          <% @followers.each do |f| %>
+
+              <div id="follower">
+                <%= f.name %>
+              </div>
+
+          <% end %>
+          <% if @no_of_followers>5 %>
+
+              <%= link_to 'view all >>', controller: :user, :action => 'view_followers', :page_id => 1 %>
+
+          <% end
+             else %>
+          <div id="head"><%= @userpro.name %>'s has no followers.</div>
+      <% end %>
+    </div>
+
+    <div id="followees">
+      <% if @followees.size>0 %>
+          <div id="head">People <%= @userpro.name %> follows</div>
+          <% @followees.each do |f| %>
+
+              <div id="followee">
+                <%= f.name %>
+              </div>
+
+
+          <% end %>
+          <% if @no_of_followees>5 %>
+              <%= link_to 'view all >>', controller: :user, :action => 'view_followees', :page_id => 1 %>
+          <% end
+             else %>
+          <div id="head"><%= @userpro.name %> does not follow anyone.</div>
+      <% end %>
+    </div>
+    <% if @user.followees.exists?(@userpro)%>
+        <%= form_tag tweet.follow_path(session[:user_id]), method: :delete do %>
+            <% if params[:page] %>
+                <%= hidden_field_tag :page, "#{params[:page]}" %>
+            <% else %>
+                <%= hidden_field_tag :page, "1" %>
+            <% end %>
+            <% if params[:per_page] %>
+                <%= hidden_field_tag :per_page, "#{params[:per_page]}" %>
+            <% else %>
+                <%= hidden_field_tag :per_page, "3" %>
+            <% end %>
+            <%= hidden_field_tag :redirect_url, user_path(@userpro.id) %>
+            <%= hidden_field_tag :following_id,"#{@userpro.id}" %>
+            <%= submit_tag "Unfollow", class: :submit %>
+        <% end %>
+    <% else %>
+        <%= form_tag tweet.follow_index_path, method: :post do %>
+            <% if params[:page] %>
+                <%= hidden_field_tag :page, "#{params[:page]}" %>
+            <% else %>
+                <%= hidden_field_tag :page, "1" %>
+            <% end %>
+            <% if params[:per_page] %>
+                <%= hidden_field_tag :per_page, "#{params[:per_page]}" %>
+            <% else %>
+                <%= hidden_field_tag :per_page, "3" %>
+            <% end %>
+            <%= hidden_field_tag :redirect_url, user_path(@userpro.id) %>
+            <%= hidden_field_tag :following_id,"#{@userpro.id}" %>
+            <%= submit_tag "Follow", class: :submit %>
+        <% end %>
+    <% end %>
+  </div>
+</div>

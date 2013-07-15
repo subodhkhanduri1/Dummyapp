@@ -1,0 +1,12 @@
+
+<div id="page">
+  <p><b>Profile</b></p>
+  <% if @message %>
+      <div id="form_error" style="color: red;"><%= @message %></div>
+  <% end %>
+  Name:&nbsp;<%= @user.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Edit', user_change_name_path(session[:user_id]) %>
+  <br/>
+  <br/>
+  <br/>
+  <%= link_to 'Change&nbsp;Password'.html_safe, user_change_password_path(session[:user_id]) %>
+</div>

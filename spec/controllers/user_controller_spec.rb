@@ -106,12 +106,58 @@ describe UserController do
        response.should redirect_to("/user/login")
      end
 
-     it "populates_the_users_array" do
+     it "populates_the_users_array_and_renders_the_all_users_view" do
+       user = FactoryGirl.create(:user, username: "subodh", password: "shubham")
+       post :login, username: user.username, password: user.password, submit: :submit
+       session[:user_id].should equal(user.id)
        user = FactoryGirl.create(:user)
        get :all_users
        assigns(:users).should eq([user])
+       response.should render_template :all_users
      end
 
    end
+
+  describe "GET #profile" do
+
+    it "should_redirect_to_login_page_if_not_logged_in" do
+      get :profile
+      response.should redirect_to("/user/login")
+    end
+
+    it "should_redirect_to_home_page_if_id_invalid" do
+      user = FactoryGirl.create(:user, username: "subodh", password: "shubham")
+      post :login, username: user.username, password: user.password, submit: :submit
+      get :profile
+      response.should redirect_to("/tweet/tweet/home");
+    end
+
+    it "should_populate_all_arrays" do
+      user1 = FactoryGirl.create(:user, username: "subodh", password: "shubham")
+      post :login, username: user1.username, password: user1.password, submit: :submit
+      user2 = FactoryGirl.create(:user)
+      get :profile, { :user => user2.id }
+      assigns(:userpro).should eq(user2)
+    end
+
+  end
+
+  describe "GET #edit_profile" do
+
+    it "should_redirect_to_login_page_if_not_logged_in" do
+
+      get :edit_profile
+      response.should redirect_to("/user/login")
+    end
+
+    it "should_set_the_user_variable_and_render_edit_profile_template_if_logged_in" do
+      user = FactoryGirl.create(:user, username: "subodh", password: "shubham")
+      post :login, username: user.username, password: user.password, submit: :submit
+      get :edit_profile
+      assigns(:user).should eq(user)
+      response.should render_template :edit_profile
+    end
+
+  end
 
 end

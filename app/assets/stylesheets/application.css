@@ -577,6 +577,11 @@ body *:focus
     font-family: Helvetica;
 }
 
+#rest ul
+{
+    list-style-type: none;
+}
+
 
 /*--------------------------- Change Name Page --------------------------------*/
 

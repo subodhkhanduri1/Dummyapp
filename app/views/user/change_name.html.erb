@@ -14,7 +14,7 @@
       <div id="form_error" style="color: red;"><%= @message %></div>
   <% end %>
   <div id="change_name_form">
-  <%= form_tag controller: :user, :action => 'change_name', method: :put do %>
+  <%= form_tag user_change_name_path, method: :put do %>
       <table border="0">
         <tr>
           <td align="right">

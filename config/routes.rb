@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-mount Tweet::Engine, at: "/tweet"
+mount Tweet::Engine, at: "/tweet", as: "tweet"
 
 =begin
   resource :user do
@@ -19,6 +19,7 @@ mount Tweet::Engine, at: "/tweet"
   end
 =end
 
+=begin
 match '/user/login', :to => 'user#login'
 match '/user/profile', :to => 'user#profile'
 match '/user/logout', :to => 'user#logout'
@@ -29,9 +30,20 @@ match '/user/change_name', :to => 'user#change_name'
 match '/user/all_users', :to => 'user#all_users'
 
 
+namespace :tweet do
+  resources :tweet
+=end
 #match '/', :to => 'user#login'
 
-  root to: "user#login"
+  root to: "user#new"
+
+  resources :user do
+    post "new"
+    get "change_name", to: "user#change_name"
+    get "change_password", to: "user#change_password"
+    put "change_name"
+    put "change_password"
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
